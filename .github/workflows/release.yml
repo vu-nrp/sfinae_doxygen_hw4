@@ -24,6 +24,14 @@ jobs:
 #      # Run Google Tests
 #      - name: 'Run GTest'
 #        run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip_test2
+      # Install Doxygen
+      - name: 'Install Doxygen'
+        run: sudo apt install doxygen && doxygen --version
+      - name: 'Install Graphviz'
+        run: sudo apt install graphviz
+      # Create documentation   
+      - name: 'Create documentation'     
+        run: doxygen
       # Run App Once
       - name: 'Run App Once'
         run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip
@@ -39,7 +47,7 @@ jobs:
           draft: false
           prerelease: false
       # Upload Release Asset Step
-      - name: 'Upload Release Asset Step for hw#3'
+      - name: 'Upload Release Asset Step for hw#4'
         id: upload_release_asset
         uses: actions/upload-release-asset@v1
         env:
