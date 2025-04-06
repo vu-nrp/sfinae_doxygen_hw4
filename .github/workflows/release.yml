@@ -1,0 +1,51 @@
+name: 'C++ CI print_ip hw#4'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+#      # Install Google Tests
+#      - name: 'Install gtest manually'
+#        run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp ./lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+      # Checkout sources
+      - uses: actions/checkout@v2
+#        with:
+#          submodules: true
+#      - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }} #-DWITH_BOOST_TEST=ON
+      - run: cmake --build .
+#      - run: cmake --build . --target test
+      - run: cmake --build . --target package
+#      # Run Google Tests
+#      - name: 'Run GTest'
+#        run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip_test2
+      # Run App Once
+      - name: 'Run App Once'
+        run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip
+      # Create Release Step
+      - name: 'Create Release Step'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          draft: false
+          prerelease: false
+      # Upload Release Asset Step
+      - name: 'Upload Release Asset Step for hw#3'
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./print_ip-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: print_ip-0.0.${{ github.run_number }}-Linux.deb
+          asset_content_type: application/vnd.debian.binary-package
