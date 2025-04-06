@@ -40,12 +40,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './html/'
-      # Deploy to GitHub Pages    
-      - name: 'Deploy to GitHub Pages'
-        id: deployment
-        uses: actions/deploy-pages@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+#      # Deploy to GitHub Pages    
+#      - name: 'Deploy to GitHub Pages'
+#        id: deployment
+#        uses: actions/deploy-pages@v4
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       # Run App Once
       - name: 'Run App Once'
         run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip
