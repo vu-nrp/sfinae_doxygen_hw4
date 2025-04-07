@@ -40,10 +40,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './html/'
-#      # Deploy to GitHub Pages    
-#      - name: 'Deploy to GitHub Pages'
-#        id: deployment
-#        uses: actions/deploy-pages@v4
+      # Deploy to GitHub Pages    
+      - name: 'Deploy to GitHub Pages'
+        id: deployment
+        uses: actions/deploy-pages@v4
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       # Run App Once
