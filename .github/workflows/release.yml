@@ -11,8 +11,9 @@ jobs:
     permissions:
       id-token: write
       pages: write
-    env:
+    environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
 #      # Install Google Tests
 #      - name: 'Install gtest manually'
