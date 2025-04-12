@@ -50,13 +50,9 @@ jobs:
       - name: 'Deploy to GitHub Pages'
         id: deployment
         uses: actions/deploy-pages@v4
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-#            permissions:
-#              id-token: write
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 #          ACCESS_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-#            permissions:
-#              id-token: write
       # Run App Once
       - name: 'Run App Once'
         run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip
