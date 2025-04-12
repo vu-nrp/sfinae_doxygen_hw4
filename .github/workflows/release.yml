@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
 #      # Install Google Tests
 #      - name: 'Install gtest manually'
@@ -46,11 +48,11 @@ jobs:
         uses: actions/deploy-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-            permissions:
-              id-token: write
+#            permissions:
+#              id-token: write
           ACCESS_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-            permissions:
-              id-token: write
+#            permissions:
+#              id-token: write
       # Run App Once
       - name: 'Run App Once'
         run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip
