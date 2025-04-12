@@ -20,8 +20,6 @@ jobs:
 #        run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp ./lib/*.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       # Checkout sources
       - uses: actions/checkout@v2
-#        with:
-#          submodules: true
 #      - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }} #-DWITH_BOOST_TEST=ON
       - run: cmake --build .
@@ -52,7 +50,6 @@ jobs:
         uses: actions/deploy-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-#          ACCESS_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       # Run App Once
       - name: 'Run App Once'
         run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip
