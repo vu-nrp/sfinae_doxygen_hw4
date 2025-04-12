@@ -50,11 +50,11 @@ jobs:
       - name: 'Deploy to GitHub Pages'
         id: deployment
         uses: actions/deploy-pages@v4
-        env:
+#        env:
 #          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 #            permissions:
 #              id-token: write
-          ACCESS_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+#          ACCESS_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 #            permissions:
 #              id-token: write
       # Run App Once
