@@ -51,7 +51,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+#          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 #            permissions:
 #              id-token: write
           ACCESS_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
