@@ -11,6 +11,8 @@ jobs:
     permissions:
       id-token: write
       pages: write
+    env:
+      name: github-pages
     steps:
 #      # Install Google Tests
 #      - name: 'Install gtest manually'
@@ -48,7 +50,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         env:
-          name: github-pages
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 #            permissions:
 #              id-token: write
