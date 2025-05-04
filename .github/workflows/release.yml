@@ -1,4 +1,4 @@
-name: 'C++ CI print_ip hw#4'
+name: 'C++ CI print ip hw#4'
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
       - run: cmake --build . --target package
 #      # Run Google Tests
 #      - name: 'Run GTest'
-#        run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip_test2
+#        run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/printip_test2
       # Setup Pages
       - name: 'Setup Pages'
         uses: actions/configure-pages@v4
@@ -52,7 +52,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       # Run App Once
       - name: 'Run App Once'
-        run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/print_ip
+        run: /home/runner/work/sfinae_doxygen_hw4/sfinae_doxygen_hw4/printip
       # Create Release Step
       - name: 'Create Release Step'
         id: create_release
@@ -72,6 +72,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./print_ip-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: print_ip-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./printip-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: printip-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
